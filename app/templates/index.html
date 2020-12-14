@@ -1,73 +1,62 @@
 {% import 'macros.html' as macro%} {% extends 'base.html'%} {% block content %}
-<div class="jumbotron">
+<div class="jumbotron" style=" font-family: 'Caveat', cursive; font-size: medium ;background-image: url(../static/photos/three.jpg);background-size: cover;background-position: center;background-repeat: no-repeat;height: 550px;">
     <h1 class="text-center pt-2">WELCOME TO LOHELI</h1>
     <p class="text-center h6">Writing, to me, is simply thinking through my fingers.<br>~Isaac Asimov</p>
 </div>
-<div class="row">
+<div class="row" style="font-family: 'Caveat', cursive;">
     <div class="col-md-9">
         <h1 class="text-center p-4 text-uppercase"><strong>Created Blogs </strong></h1>
         <div class="row">
             <div class="col-8 col-md-9">
-                <div id="accordion" class="bg-info">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link text-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            All Pitches
-                          </button>
-                            </h5>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body bg-info">
-                                {{ macro.display(pitch) }} </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                        <div class="card-text show active">
+                            {{macro.display(post)}}
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed text-info" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Hobbies Pitches
-                          </button>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body bg-info">
-                                {{ macro.display(hobbies)}} </div>
+                </div>
+                <div class="card" id="hobbies">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                        <div class="card-text">
+                            {{macro.display(hobbies)}}
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed text-info" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Experiences Pitches
-                          </button>
-                            </h5>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                            <div class="card-body bg-info">
-                                {{ macro.display(experiences) }} </div>
+                </div>
+                <div class="card" id="experiences">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                        <div class="card-text">
+                            {{macro.display(experiences)}}
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed text-info" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                                Skills Pitches
-                            </button>
-                            </h5>
-                        </div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                            <div class="card-body bg-info">
-                                {{ macro.display(skills) }} </div>
+                </div>
+                <div class="card" id="skills">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                        <div class="card-text">
+                            {{macro.display(skills)}}
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-4 col-md-3">
-                <p>quote</p>
+                <blockquote class="blockquote" style="text-align: center;font-weight:normal;">
+                    <p style="font-size:17px"><i class="fas fa-quote-left"></i><i>{{ quotes.quote }}</i><i class="fas fa-quote-right"></i></p>
+                    <footer class="blockquote-footer" style="font-size: 17px;">{{quotes.author}}
+                    </footer>
+                </blockquote>
             </div>
         </div>
+    </div>
+    <div class="col-md-3" style="background-image: url(../static/photos/four.jpg);background-size: cover;background-position: center;background-repeat: no-repeat;">
+
     </div>
 </div>
 

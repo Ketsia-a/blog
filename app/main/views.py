@@ -3,7 +3,8 @@ from . import main
 from flask_login import login_required
 from ..models import User,Post,Comment
 from .forms import UpdateProfile
-from .forms import PostForm,CommentForm
+from ..requests import get_quotes
+from .forms import PostForm,CommentForm,UpdatePostForm
 from .. import db,photos
 from flask_login import current_user
 
@@ -95,13 +96,15 @@ def new_post():
         
             return redirect(url_for('main.index'))
         else:
-        if form.validate_on_submit():
-            new_post = Post(post=post,user_id=current_user._get_current_object().id,category=category,title=title)
+            post_pic_path = 'https://ciusss360.ca/wp-content/uploads/2018/03/Open.png'   
+            if form.validate_on_submit():
+                new_post = Post(post=post,user_id=current_user._get_current_object().id,post_pic_path=post_pic_path,category=category,title=title)
           
-            db.session.add(new_post)
-            db.session.commit()
-        
-        return redirect(url_for('main.index'))
+                db.session.add(new_post)
+                db.session.commit()
+            
+            return redirect(url_for('main.index'))
+   
     return render_template('post.html', form = form)
 
 @main.route('/comment/<int:post_id>', methods = ['POST','GET'])
