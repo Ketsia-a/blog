@@ -3,6 +3,7 @@ import os
 class Config:
   
     SECRET_KEY = 'reality321'
+    QUOTES_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
     SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://kets:ketsia321@localhost/blog"
     UPLOADED_PHOTOS_DEST ='app/static/photos'
   
