@@ -10,9 +10,17 @@ class UpdateProfile(FlaskForm):
 class PostForm(FlaskForm):
     title = StringField('Title', validators=[Required()])
     category = SelectField('Category', choices=[('Hobbies','Hobbies'),('Experiences','Experiences'),('Skills','Skills')],validators=[Required()])
-    pitch = TextAreaField('Your Pitch...', validators=[Required()])
+    post = TextAreaField('Your Post...', validators=[Required()])
+    post_pic_path = StringField('Upload image url...')
     submit = SubmitField('Save')
 
 class CommentForm(FlaskForm):
     comment = TextAreaField('Comment here',validators=[Required()])
     submit = SubmitField('Comment')
+
+class UpdatePostForm(FlaskForm):   
+    title = StringField('Title', validators=[Required()])
+    category = SelectField('Category', choices=[('Hobbies','Hobbies'),('Experiences','Experiences'),('Skills','Skills')],validators=[Required()])
+    post = TextAreaField('Update...', validators=[Required()])
+    post_pic_path = StringField('Upload image url...')
+    submit = SubmitField('Save')
