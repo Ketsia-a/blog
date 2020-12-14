@@ -1,16 +1,25 @@
 import urllib.request,json
-# from .models import News,Article
+from .models import Quotes
 
-# Getting api key
-api_key = None
-# Getting the movie base url
 base_url = None
-article_url = None
 
 def configure_request(app):
-    # global api_key,base_url,article_url
-    # api_key = app.config['NEWS_API_KEY']
-    # base_url = app.config['NEWS_API_BASE_URL']
-    # article_url = app.config['ARTICLE_NEWS_URL']
+    global base_url
+    
 
-    pass
+    base_url = app.config['QUOTES_URL']
+
+def get_quotes():
+    quote_object = None
+    with urllib.request.urlopen(base_url) as url:
+        get_quote_data = url.read()
+        get_quote_response = json.loads(get_quote_data)
+
+
+        if get_quote_response:
+
+            author = get_quote_response.get('author')
+            quote = get_quote_response.get('quote')
+            quote_object = Quotes(author,quote)
+
+    return quote_object
