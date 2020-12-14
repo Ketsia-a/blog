@@ -1,22 +1,19 @@
-<!-- {%macro display(pitch) %}
+{%macro display(post) %}
 <div class="container-fluid">
     <div class="row">
-        {% if pitch %} {% for category in pitch %}
+        {% if post %} {% for category in post %}
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{category.title}}</h5>
-                    <p class="card-text">{{category.pitch}}</p>
+                    <p class="card-text">{{category.post}}</p>
                     <p class="card-text text-muted">__{{category.user.username}}</p>
                     <div>
                         <span class="mr-2"><i class="fa fa-comment"></i>{{category.comment.count()}}</span>
-                        <span class="mr-2"><a href="{{url_for('main.like',id = category.id)}}"><i
-									class="fa fa-thumbs-up"
-									style="color: black;"></i></a>{{category.upvote.count()}}</span>
-                        <span><a href="{{url_for('main.dislike',id = category.id)}}"> <i class="fa fa-thumbs-down"
-									style="color: black;"></i></a>{{category.downvote.count()}}</span>
                     </div>
-                    <a href="{{url_for('main.comment',pitch_id = category.id)}}" class="btn btn-info">Comment</a>
+                    <a href="{{url_for('main.comment',post_id = category.id)}}" class="btn btn-info">Comment</a>
+                    <a href="{{url_for('main.delete',id = category.id)}}" class="btn btn-info">Delete blog</a><br><br>
+                    <a href="{{url_for('main.update_post',id = category.id)}}" class="btn btn-info">Update blog</a>
                 </div>
             </div>
         </div>
@@ -26,4 +23,4 @@
         {% endif %}
     </div>
 </div>
-{% endmacro %} -->
+{% endmacro %}
