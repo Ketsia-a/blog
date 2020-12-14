@@ -1,4 +1,4 @@
-<!-- {% extends 'base.html'%} {% import 'bootstrap/wtf.html' as wtf %} {% block content %}
+{% extends 'base.html'%} {% import 'bootstrap/wtf.html' as wtf %} {% block content %}
 <div class="container">
 
     <h3 class="text-center m-4"><strong>LEAVE A COMMENT</strong></h3>
@@ -7,20 +7,20 @@
     </div>
     {% if all_comments %}
     <div class="m-5">
-        <p>Comments</p {% for comment in all_comments %} <div class="card">
-        <div class="card p-3">
-            <p class="card-title">{{ comment.comment }}</p>
-            <p class="card-text">__{{comment.user.username}}</p>
+        <p>Comments</p> {% for comment in all_comments %}
+        <div class="card">
+            <div class="card p-3">
+                <p class="card-title">{{ comment.comment }}</p>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
+    {%else%}
+
+    <p>No Comments</p>
+
+    {%endif%}
 </div>
 
-{%else%}
-
-<p>No Comments</p>
-
-{%endif%}
-</div>
-
-{% endblock%} -->
+{% endblock%}
