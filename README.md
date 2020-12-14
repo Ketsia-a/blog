@@ -5,6 +5,7 @@
 * Contact information 
 * Technologies used
 * Known bugs
+* link to live site 
 * License
 
 #  *Ketsia Iragena*
@@ -21,8 +22,8 @@
  psql
  css 
  html
-  ## Known bugs
-   * no deployment yet
+ # Link to live site
+ https://mynewblogsite.herokuapp.com/
  
   If you find a problem with the website, please [report it in the web repository](https://github.com/Ketsia-a/blog) 
 # License
